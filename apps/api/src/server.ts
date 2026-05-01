@@ -1,4 +1,3 @@
-import helmet from "@fastify/helmet";
 import cors from "@fastify/cors";
 import { fastifyTRPCPlugin } from "@trpc/server/adapters/fastify";
 import { build } from "./app";
@@ -23,8 +22,6 @@ app.register(cors, {
   origin: "*",
   credentials: true,
 });
-
-app.register(helmet);
 
 if (env.HOST) {
   app.listen(

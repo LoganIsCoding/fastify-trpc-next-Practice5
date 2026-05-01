@@ -21,6 +21,13 @@ function getBaseUrl() {
   return `http://localhost:${process.env.PORT ?? 5000}`;
 }
 
+export function setAuthToken(token: string) {
+  console.log("Setting auth token:", token);
+  if (typeof window !== "undefined") {
+    localStorage.setItem("auth_token", token);
+  }
+}
+
 export const trpc = createTRPCNext<AppRouter>({
   config({ ctx }) {
     return {
